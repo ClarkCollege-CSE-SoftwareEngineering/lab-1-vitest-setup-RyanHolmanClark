@@ -1,3 +1,8 @@
+**Name** Ryan Holman
+**Additional Tests** `strings.test.ts` Lines 27, 45, 69, 92
+**Reflection Answers** Complete
+**Testing Trophy Connection** In this lab we worked on the center sections of the testing trophy, integration and unit tests. With the unit tests we isolated individual function to verify that their output match what we expected it to be. For integration test we tested the functions found in `content.ts`, which utilize functions from `string.ts`. The integration tests show that the two pieces are working together properly. End to End was not a part of this lab because what we have it not an intractable software, it is what the beginning of a complete software would be.
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TaS1d2WK)
 # Lab 1: Vitest Setup from Scratch
 
@@ -265,6 +270,8 @@ You should see all tests passing. Notice the structure:
 - `expect()` makes assertions
 
 **🤔 Reflection Question:** Look at the `add` tests. The first test uses explicit _Arrange-Act-Assert_ comments. Why might this pattern be useful, especially for complex tests?
+
+Using these comments can help you to understand the test fast when reading the test after having to seen it in a long period of time. Adding or removing parts of the test can become easier as well allowing you to change one piece at a time instead of scrolling up and down trying to remember what you have or need to still change.
 
 ### Step 2.4: See a Test Fail
 
@@ -573,9 +580,16 @@ describe("content service", () => {
 
 1. Looking at `strings.test.ts` and `content.test.ts`, which file contains **unit tests** and which contains **integration tests**? How can you tell the difference?
 
+`strings.test.ts` contains **unit tests** because it is testing individual functions from `strings.ts` for correctness.
+`content.test.ts` contains **integration tests** because it is testing the interaction between functions in `content.ts` and `strings.ts` 
+
 2. If the `slugify` function had a bug, which test files would have failing tests? Why does this happen?
 
+Both `string.test.ts` and `content.test.ts` would have failed tests. Unit tests for the `slugify` function are going to fail because the its output is not what is expected. Any integration tests that rely on the `slugify` function working correctly will also fail.
+
 3. What additional confidence do the integration tests give you that unit tests alone wouldn't provide?
+
+Integration tests give you confidence that different parts of your software are functioning correctly together without you needing to manually interact with the software.
 
 ---
 
