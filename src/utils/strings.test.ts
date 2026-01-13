@@ -47,6 +47,9 @@ describe('string utilities', () => {
     });
 
     // TODO: Add your own test case
+    it('custom suffix not used when length is exact', () => {
+      expect(truncate('Hello', 5, '…')).toBe('Hello');
+    });
   });
 
   describe('capitalize', () => {
@@ -63,6 +66,9 @@ describe('string utilities', () => {
     });
 
     // TODO: Add your own test case
+    it('handles reversed capitalized words', () => {
+      expect(capitalize('hELLO')).toBe('Hello');
+    });
   });
 
   describe('countWords', () => {
@@ -83,5 +89,8 @@ describe('string utilities', () => {
     });
 
     // TODO: Add your own test case
+    it('handles input with multiple lines', () => {
+      expect(countWords('Hello\nWorld\nLine3')).toBe(3);
+    });
   });
 });
